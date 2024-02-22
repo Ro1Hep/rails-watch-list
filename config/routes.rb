@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :lists
-  #   resources :bookmarks
-  # end
+  resources :bookmarks, only: %i[new create destroy]
 end

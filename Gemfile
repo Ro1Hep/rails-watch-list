@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.2"
 
 # Gems for CSS
+gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
