@@ -1,9 +1,54 @@
-<h1>Your Lists</h1>
+<div class="navbar">
+  <div>
+    <ul class="list-group">
+      <li>My lists</li>
+      <li><%= link_to 'New list', new_list_path %></li>
+    </ul>
+  </div>
+</div>
 
-<ul>
-<% @lists.each do |list| %>
-  <li><%= link_to list[:name], list_path(list[:id]) %></li>
-<% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
+  <div class="container">
+    <h1>Save any kind of movies</h1>
+    <p>Dive into the world of cinema</p>
+  </div>
+</div>
 
-<%= link_to 'Add list', new_list_path %>
+<div class="container">
+  <div class="card-title">
+    <h1 style="font-size: 30px"> My Lists </h1>
+    <p><%= link_to "Add movie list", new_list_path, class: "btn btn-success text-align: center" %></p>
+  </div>
+
+  <div class="card-grid">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list), class: "text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <%= list.name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<%# <div class="navbar">
+  <h1>Your Lists</h1>
+</div>
+
+<div class="body">
+  <%= link_to 'Add list', new_list_path %>
+
+  <%# <ul class="list-contain"> %>
+    <%# <% @lists.each do |list| %>
+      <%# <li class="list-item"><%= link_to list[:name], list_path(list[:id]) %>
+    <%# <% end %>
+  <%# </ul> %>
+
+<%# </div> %>

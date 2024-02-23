@@ -1,16 +1,20 @@
-<h1><%= @list.name %></h1>
-<%= link_to 'Delete', list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-<p>====================</p>
+<div class="navbar">
+  <h1><%= @list.name %></h1>
+  <p class="btn-path"><%= link_to 'Delete', list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+</div>
 
-<ul>
+<div class="body">
+  <p class="btn-path"><%= link_to "< back", lists_path %></p>
+
   <% @list.bookmarks.each do |bookmark| %>
-    <h1><%= bookmark.movie.title %></h1>
-    <p>Overview: <%= bookmark.movie.overview %></p>
-    <p>Rating: <%= bookmark.movie.rating %></p>
-    <p>Comment: <%= bookmark.comment %></p>
-    <p><%= link_to 'Remove', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure (reload page after remove)" } %></p>
+    <div class="card">
+      <h1><%= bookmark.movie.title %></h1>
+      <p>Overview: <%= bookmark.movie.overview %></p>
+      <p>Rating: <%= bookmark.movie.rating %></p>
+      <p>Comment: <%= bookmark.comment %></p>
+      <p class="btn-list"><%= link_to 'Remove', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure (reload page after remove)" } %></p>
+    </div>
   <% end %>
-</ul>
-<%= link_to 'Add bookmark', new_list_bookmark_path(@list) %>
 
-<%= link_to "<- back", lists_path %>
+  <p class="btn-path"><%= link_to 'Add bookmark', new_list_bookmark_path(@list) %></p>
+</div>
